@@ -1,23 +1,23 @@
 import pyperclip,os,pyttsx3
 
-history = []
+historico = []
 os.system('cls')
-engine = pyttsx3.init()
-engine.say("Leitor, seu assistente de leitura python.")
-engine.runAndWait()
+motor_tts = pyttsx3.init()
+motor_tts.say("Leitor, seu assistente de leitura python.")
+motor_tts.runAndWait()
 
 while True:
-    should_clear = len(history)
+    devo_limpar = len(historico)
 
-    if should_clear > 5: 
+    if devo_limpar > 5: 
         os.system('cls')
-        history.clear()
-    text = pyperclip.waitForNewPaste(timeout=None)
-    engine.say(text)
-    engine.runAndWait()
-    history.append(text)
+        historico.clear()
+    texto = pyperclip.waitForNewPaste(timeout=None)
+    motor_tts.say(texto)
+    motor_tts.runAndWait()
+    historico.append(texto)
     print("--------------------------")
-    print("Texto:",text)
-    print("Histórico:",history)
+    print("Texto:",texto)
+    print("Histórico:",historico)
     print("__________________________")
     
